@@ -107,15 +107,16 @@ a[href*="v2"]:hover::before {
 a[href*="v2"]::after {
     content: "NEW";
     position: absolute;
-    top: -10px;
-    right: -12px;
+    top: 5px;      /* Сдвинули вниз */
+    right: 10px;   /* Сдвинули влево */
     background: #ff006e;
     color: white;
-    font-size: 0.75rem;
-    padding: 4px 9px;
-    border-radius: 12px;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 10px;
     font-weight: bold;
-    animation: pulse 2s infinite;
+    z-index: 10;   /* Убедитесь, что метка поверх всего */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 a[href*="v1"] {
