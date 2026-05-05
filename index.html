@@ -1,0 +1,235 @@
+<!doctype html><html lang="ru" translate="no"><head><meta charset="utf-8"><style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #e6e6e6;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+body::before {
+    content: '';
+    display: block;
+    height: 40px;
+}
+
+body > * {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+    padding: 50px 30px;
+    background: rgba(25, 25, 35, 0.85);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(100, 150, 255, 0.2);
+    animation: fadeIn 1s ease;
+}
+
+h1 {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #4cc9f0, #72efdd, #f9c74f);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #4cc9f0, #72efdd);
+    border-radius: 2px;
+}
+
+p {
+    font-size: 1.3rem;
+    color: #c5c6c8;
+    max-width: 650px;
+    margin: 0 auto 35px;
+}
+
+a {
+    display: inline-block;
+    margin: 0 12px;
+    padding: 14px 32px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-width: 160px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+a[href*="v2"] {
+    background: linear-gradient(45deg, #4361ee, #3a0ca3);
+    color: white;
+    box-shadow: 0 5px 20px rgba(67, 97, 238, 0.5);
+}
+
+a[href*="v2"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transform: translateX(-100%);
+    z-index: -1;
+    transition: transform 0.6s;
+}
+
+a[href*="v2"]:hover::before {
+    transform: translateX(100%);
+}
+
+a[href*="v2"]::after {
+    content: "NEW";
+    position: absolute;
+    top: -10px;
+    right: -12px;
+    background: #ff006e;
+    color: white;
+    font-size: 0.75rem;
+    padding: 4px 9px;
+    border-radius: 12px;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+a[href*="v1"] {
+    background: linear-gradient(45deg, #72efdd, #4cc9f0);
+    color: #1a1a2e;
+    box-shadow: 0 5px 20px rgba(114, 239, 221, 0.5);
+}
+
+a[href*="v1"]::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0,0,0,0.2), rgba(0,0,0,0));
+    transform: translateX(-100%);
+    z-index: -1;
+    transition: transform 0.6s;
+}
+
+a[href*="v1"]:hover::before {
+    transform: translateX(100%);
+}
+
+a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.5px;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 110, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(255, 0, 110, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 0, 110, 0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Добавляем эффект мерцания для кода */
+.code-effect {
+    display: inline-block;
+    margin: 25px auto;
+    padding: 15px;
+    background: rgba(15, 20, 30, 0.7);
+    border-radius: 8px;
+    border-left: 3px solid #4cc9f0;
+    text-align: left;
+    font-family: 'Courier New', monospace;
+    max-width: 90%;
+    animation: codeBlink 3s infinite;
+}
+
+.code-effect span {
+    display: block;
+}
+
+.keyword {
+    color: #72efdd;
+}
+
+.string {
+    color: #f9c74f;
+}
+
+.comment {
+    color: #8a8a9c;
+    font-style: italic;
+}
+
+@keyframes codeBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+@media (max-width: 768px) {
+    body > * {
+        padding: 40px 20px;
+    }
+    
+    h1 {
+        font-size: 2.3rem;
+    }
+    
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 25px;
+    }
+    
+    a {
+        display: block;
+        margin: 12px auto;
+        width: 85%;
+    }
+}</style></head><body><h1>HTML Ide Нового Поколения!</h1><div class="code-effect">
+    <span><span class="keyword">function</span> <span class="string">createIDE</span>() {</span>
+    <span>  <span class="comment">// HTML Studio - Новое поколение</span></span>
+    <span>  <span class="keyword">const</span> editor = <span class="keyword">new</span> <span class="string">CodeMirror</span>();</span>
+    <span>  editor.<span class="string">setTheme</span>(<span class="string">"monokai"</span>);</span>
+    <span>  <span class="keyword">return</span> editor;</span>
+    <span>}
+</div><p>Скачайте Новейшую HTML Ide Для добного Написания Кода!</p><a href="https://www.mediafire.com/file/79ydguvdo0yysmg/html-studio.v2.zip/file" target="_blank">v2.0</a><a href="https://www.mediafire.com/file/n0qbzmyvilhur8n/html-studio.v1.zip/file" target="_blank">v1.0</a></body></html>
